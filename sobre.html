@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sobre — Sarah by Mídia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Allura&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* ============ SOBRE ============ */
+.about-intro {
+  background: var(--cream); color: var(--ink);
+  padding: 140px 48px 120px;
+}
+.about-intro__grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 80px; align-items: center;
+}
+.about-intro__photo {
+  position: relative; aspect-ratio: 4/5;
+  background: var(--wine);
+}
+.about-intro__photo image-slot { width: 100%; height: 100%; }
+.about-intro__photo::before {
+  content: ""; position: absolute;
+  top: 20px; left: 20px; right: -20px; bottom: -20px;
+  border: 1px solid var(--gold-deep); z-index: -1;
+}
+.about-intro__photo .badge {
+  position: absolute; right: -28px; top: 32px;
+  background: var(--wine-deep); color: var(--cream);
+  padding: 12px 20px;
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+  border-left: 3px solid var(--gold);
+}
+.about-intro .eyebrow { color: var(--gold-deep); }
+.about-intro .eyebrow::before { background: var(--gold-deep); }
+.about-intro__name {
+  font-family: var(--font-script);
+  font-size: clamp(54px, 6.5vw, 90px);
+  color: var(--gold-deep);
+  line-height: 1; margin: 14px 0 0 4px;
+}
+.about-intro h2 {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(40px, 5.4vw, 72px);
+  line-height: 1; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--wine-deep); margin: 2px 0 36px;
+}
+.about-intro h2 .italic {
+  font-style: italic; font-weight: 400;
+  text-transform: none; letter-spacing: 0.005em; color: var(--gold-deep);
+}
+.about-intro__lede {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 24px; line-height: 1.45; color: var(--wine);
+  margin: 0 0 28px; max-width: 560px;
+}
+.about-intro__body p {
+  font-size: 15px; line-height: 1.85; color: rgba(26,6,6,0.78);
+  margin: 0 0 18px; max-width: 540px;
+}
+.about-intro__sig {
+  margin-top: 36px;
+  font-family: var(--font-script); font-size: 48px; color: var(--wine-deep); line-height: 1;
+}
+.about-intro__sig + span {
+  display: block; font-size: 10px; letter-spacing: 0.32em;
+  text-transform: uppercase; color: rgba(26,6,6,0.55); margin-top: 6px;
+}
+@media (max-width: 980px) {
+  .about-intro { padding: 100px 24px 80px; }
+  .about-intro__grid { grid-template-columns: 1fr; gap: 56px; }
+  .about-intro__photo { max-width: 420px; margin: 0 auto; }
+}
+
+/* ============ MANIFESTO ============ */
+.manifesto {
+  background: var(--wine);
+  padding: 120px 48px;
+  border-top: 1px solid rgba(201,161,74,0.18);
+  border-bottom: 1px solid rgba(201,161,74,0.18);
+  text-align: center;
+}
+.manifesto__inner { max-width: 920px; margin: 0 auto; }
+.manifesto .script { font-size: clamp(40px, 5vw, 64px); }
+.manifesto blockquote {
+  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-size: clamp(26px, 3.5vw, 40px); line-height: 1.4;
+  color: var(--cream); margin: 16px 0 32px;
+}
+.manifesto blockquote span {
+  color: var(--gold-light); font-weight: 400;
+}
+.manifesto cite {
+  font-style: normal;
+  display: inline-block;
+  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold-light); margin-top: 8px;
+}
+.manifesto cite::before {
+  content: "—"; margin-right: 10px;
+}
+
+/* ============ VALORES ============ */
+.values { padding: 120px 48px; background: var(--cream); color: var(--ink); }
+.values__container { max-width: 1280px; margin: 0 auto; }
+.values__head { text-align: center; margin-bottom: 72px; }
+.values__head .eyebrow { color: var(--gold-deep); justify-content: center; }
+.values__head .eyebrow::before { background: var(--gold-deep); }
+.values__head h2 {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(34px, 4.4vw, 56px);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--wine-deep); margin: 14px 0 6px;
+}
+.values__head .script { color: var(--gold-deep); font-size: clamp(30px, 3.8vw, 46px); }
+.values__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+.value {
+  padding: 36px 28px;
+  border: 1px solid rgba(160,127,46,0.25);
+  background: var(--cream-soft);
+  display: flex; flex-direction: column; gap: 12px;
+}
+.value__num {
+  font-family: var(--font-display); font-weight: 400; font-style: italic;
+  font-size: 36px; color: var(--gold-deep);
+  border-bottom: 1px solid var(--gold-deep);
+  width: fit-content; padding-bottom: 4px; line-height: 1;
+}
+.value h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--wine-deep); margin-top: 12px;
+}
+.value p {
+  font-size: 14px; line-height: 1.7; color: rgba(26,6,6,0.72);
+  margin: 0;
+}
+@media (max-width: 980px) { .values__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .values__grid { grid-template-columns: 1fr; } }
+
+/* ============ CTA ============ */
+.cta-band {
+  padding: 100px 48px; text-align: center;
+  background: var(--wine-deep);
+  border-bottom: 1px solid rgba(201,161,74,0.18);
+}
+.cta-band .script { font-size: clamp(40px, 5vw, 64px); margin-bottom: 6px; }
+.cta-band h2 {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(32px, 4.2vw, 52px); letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--cream); margin-bottom: 28px;
+}
+.cta-band h2 .italic { font-style: italic; font-weight: 400; text-transform: none; color: var(--gold-light); letter-spacing: 0.005em; }
+.cta-band .btn { margin-top: 8px; }
+
+</style>
+</head>
+<body>
+
+<header class="nav solid" id="nav">
+  <a href="index.html" class="nav__brand">Sarah <small>by mídia</small></a>
+  <nav class="nav__links">
+    <a href="sobre.html" class="active">Sobre</a>
+    <a href="servicos.html">Serviços</a>
+    <a href="portfolio.html">Portfólio</a>
+    <a href="depoimentos.html">Depoimentos</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <div style="display:flex; gap:12px; align-items:center;">
+    <a href="contato.html" class="nav__cta">Solicitar orçamento</a>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="18" height="18"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="crumbs">
+    <a href="index.html">Início</a>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg>
+    <span>Sobre</span>
+  </div>
+  <div class="script">conheça quem está</div>
+  <h1>Por trás <span class="italic">da câmera</span></h1>
+  <p>Três anos de bastidor, um caderno cheio de ideias e a vontade de fazer cada marca ser vista, sentida e lembrada.</p>
+</section>
+
+<section class="about-intro">
+  <div class="about-intro__grid">
+    <div class="about-intro__photo reveal">
+      <image-slot id="about-photo" src="assets/sarah-hero.png" placeholder="Foto da Sarah (retrato)" shape="rect" position="50% 30%"></image-slot>
+      <div class="badge">Sarah Teixeira</div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">Prazer, eu sou</div>
+      <div class="about-intro__name">Sarah</div>
+      <h2>Storymaker<br><span class="italic">&amp; social media</span></h2>
+      <p class="about-intro__lede">
+        Acredito que toda marca tem uma história — minha missão é fazer com que ela seja vista, sentida e lembrada.
+      </p>
+      <div class="about-intro__body">
+        <p>
+          Sou Storymaker e Social Media com bastidor em eventos, lançamentos e marcas autorais. Trabalho com olhar editorial: penso cada story como uma cena, cada feed como uma capa de revista. Para mim, conteúdo não é volume — é assinatura.
+        </p>
+        <p>
+          Cobrindo casamentos, formaturas, lançamentos e o dia a dia de empresas, entrego pacotes prontos pra postar: com legenda, trilha e ritmo certos. Um story bem feito não interrompe o scroll — ele faz o público parar e prestar atenção.
+        </p>
+        <p>
+          Atendo São Paulo e arredores, e viajo para eventos pelo Brasil. Trabalho de perto, ouvindo o que cada cliente quer dizer — porque a melhor narrativa é a que nasce verdadeira.
+        </p>
+      </div>
+      <div class="about-intro__sig">Sarah Teixeira</div>
+      <span>Storymaker & Social Media · São Paulo, SP</span>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="manifesto__inner reveal">
+    <div class="script">o que me move,</div>
+    <blockquote>
+      "Storymaker é onde <span>criatividade</span> encontra <span>propósito</span>. Cada story é uma pequena obra — pensada, vivida e entregue com o cuidado de quem sabe que o detalhe é tudo."
+    </blockquote>
+    <cite>Sarah Teixeira</cite>
+  </div>
+</section>
+
+<section class="values">
+  <div class="values__container">
+    <div class="values__head reveal">
+      <div class="eyebrow center" style="justify-content: center; display: flex;">Como eu trabalho</div>
+      <div class="script">princípios que</div>
+      <h2>guiam meu olhar</h2>
+    </div>
+    <div class="values__grid">
+      <article class="value reveal">
+        <div class="value__num">01</div>
+        <h3>Olhar editorial</h3>
+        <p>Cada story pensado como uma cena. Composição, ritmo, trilha — nada deixado ao acaso.</p>
+      </article>
+      <article class="value reveal">
+        <div class="value__num">02</div>
+        <h3>Entrega ágil</h3>
+        <p>Stories no mesmo dia, edição em tempo real e comunicação direta. Sua marca não pode esperar.</p>
+      </article>
+      <article class="value reveal">
+        <div class="value__num">03</div>
+        <h3>Identidade fiel</h3>
+        <p>Estética alinhada à sua marca, com tom de voz consistente em cada peça publicada.</p>
+      </article>
+      <article class="value reveal">
+        <div class="value__num">04</div>
+        <h3>Bastidor cuidado</h3>
+        <p>Trato seus convidados, cliente e equipe com discrição. Bom conteúdo nasce de gente que confia.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="script">vamos criar juntos,</div>
+  <h2>seu próximo <span class="italic">storyboard</span></h2>
+  <a href="contato.html" class="btn btn-gold">
+    Solicitar orçamento
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <div class="footer__brand">Sarah</div>
+      <div class="footer__tagline">by mídia</div>
+      <p class="footer__about">Storymaker e Social Media. Stories autorais para marcas, eventos e momentos que merecem ser lembrados.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="sobre.html">Sobre mim</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li><a href="depoimentos.html">Depoimentos</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="servicos.html">Storymaker</a></li>
+        <li><a href="servicos.html">Cobertura de evento</a></li>
+        <li><a href="servicos.html">Gestão de Instagram</a></li>
+        <li><a href="servicos.html">Reels & vídeos curtos</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5511977239672">(11) 97723-9672</a></li>
+        <li><a href="mailto:sarahtp.socialmedia@gmail.com">sarahtp.socialmedia<br>@gmail.com</a></li>
+        <li><a href="#">@sarahbymidia</a></li>
+        <li>São Paulo · SP</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Sarah by Mídia · Todos os direitos reservados</span>
+    <small>onde criatividade encontra propósito</small>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511977239672?text=Ol%C3%A1%20Sarah%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="wa-float" target="_blank" rel="noopener">
+  <span class="pulse"></span>
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.31c-.31-.16-1.84-.91-2.13-1.01-.29-.11-.49-.16-.7.16-.21.31-.8 1.01-.98 1.22-.18.21-.36.23-.67.08-.31-.16-1.31-.48-2.5-1.54-.92-.82-1.55-1.84-1.73-2.15-.18-.31-.02-.48.14-.63.14-.14.31-.36.47-.54.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.54-.08-.16-.7-1.69-.96-2.31-.25-.61-.51-.53-.7-.54-.18-.01-.39-.01-.6-.01-.21 0-.54.08-.83.39-.29.31-1.09 1.07-1.09 2.6 0 1.53 1.12 3.01 1.27 3.22.16.21 2.2 3.36 5.34 4.71.74.32 1.33.51 1.78.66.75.24 1.43.21 1.97.13.6-.09 1.84-.75 2.1-1.48.26-.73.26-1.35.18-1.48-.08-.13-.28-.21-.59-.36zM16.04 4.5C9.69 4.5 4.5 9.69 4.5 16.04c0 2.04.53 4.03 1.54 5.79L4.5 27.5l5.86-1.53c1.7.93 3.61 1.42 5.68 1.42 6.35 0 11.54-5.19 11.54-11.54S22.39 4.5 16.04 4.5z"/></svg>
+  <span>Falar no WhatsApp</span>
+</a>
+
+<script src="image-slot.js"></script>
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

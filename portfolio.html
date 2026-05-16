@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfólio — Sarah by Mídia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Allura&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.portfolio { padding: 80px 48px 120px; }
+.portfolio__container { max-width: 1280px; margin: 0 auto; }
+.portfolio__filters {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 48px;
+}
+.portfolio__filters button {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+  padding: 10px 18px; border: 1px solid rgba(201,161,74,0.3);
+  color: rgba(247,239,226,0.7);
+  transition: all 0.2s;
+}
+.portfolio__filters button:hover,
+.portfolio__filters button.active { border-color: var(--gold); color: var(--wine-deep); background: var(--gold); }
+
+.portfolio__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 240px; gap: 14px;
+}
+.portfolio__item {
+  position: relative; overflow: hidden;
+  background: var(--wine);
+  border: 1px solid rgba(201,161,74,0.15);
+  cursor: pointer;
+}
+.portfolio__item.tall { grid-row: span 2; }
+.portfolio__item.wide { grid-column: span 2; }
+.portfolio__item image-slot { width: 100%; height: 100%; }
+.portfolio__item::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(43,0,0,0.85));
+  pointer-events: none; transition: opacity 0.35s;
+}
+.portfolio__item:hover::after { opacity: 0.55; }
+.portfolio__item__caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 18px 20px; z-index: 2;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  pointer-events: none;
+}
+.portfolio__item__caption span {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold-light); opacity: 0.9;
+  display: block;
+}
+.portfolio__item__caption strong {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--cream); margin-top: 4px; display: block;
+}
+.portfolio__item__caption em {
+  font-family: var(--font-script); font-style: normal;
+  font-size: 22px; color: var(--gold-light); line-height: 1;
+}
+
+@media (max-width: 980px) { .portfolio__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; } }
+@media (max-width: 540px) { .portfolio__grid { grid-template-columns: 1fr; } .portfolio__item.wide { grid-column: span 1; } }
+
+/* MARCAS */
+.brands {
+  background: var(--cream); color: var(--ink);
+  padding: 100px 48px;
+  border-top: 1px solid rgba(160,127,46,0.2);
+}
+.brands__container { max-width: 1280px; margin: 0 auto; }
+.brands__head { text-align: center; margin-bottom: 56px; }
+.brands__head .eyebrow { color: var(--gold-deep); justify-content: center; display: inline-flex; }
+.brands__head .eyebrow::before { background: var(--gold-deep); }
+.brands__head h3 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: clamp(24px, 3.2vw, 36px); color: var(--wine);
+  margin: 14px auto 0; max-width: 720px; line-height: 1.3;
+}
+.brands__grid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px;
+}
+.brand {
+  text-align: center; padding: 26px 14px;
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 14px; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--wine); opacity: 0.6;
+  border: 1px solid rgba(71,0,0,0.12);
+  transition: opacity 0.25s, border-color 0.25s;
+}
+.brand:hover { opacity: 1; border-color: var(--gold-deep); }
+.brand small {
+  display: block; font-family: var(--font-script); font-size: 18px;
+  letter-spacing: 0; color: var(--gold-deep); margin-top: 2px;
+  text-transform: none;
+}
+@media (max-width: 860px) { .brands__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px) { .brands__grid { grid-template-columns: repeat(2, 1fr); } }
+
+.cta-band {
+  padding: 100px 48px; text-align: center; background: var(--wine-deep);
+}
+.cta-band .script { font-size: clamp(36px, 4.6vw, 56px); margin-bottom: 6px; }
+.cta-band h2 {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(28px, 3.8vw, 46px); letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--cream); margin-bottom: 28px;
+}
+.cta-band h2 .italic { font-style: italic; font-weight: 400; text-transform: none; color: var(--gold-light); letter-spacing: 0.005em; }
+</style>
+</head>
+<body>
+
+<header class="nav solid" id="nav">
+  <a href="index.html" class="nav__brand">Sarah <small>by mídia</small></a>
+  <nav class="nav__links">
+    <a href="sobre.html">Sobre</a>
+    <a href="servicos.html">Serviços</a>
+    <a href="portfolio.html" class="active">Portfólio</a>
+    <a href="depoimentos.html">Depoimentos</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <div style="display:flex; gap:12px; align-items:center;">
+    <a href="contato.html" class="nav__cta">Solicitar orçamento</a>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="18" height="18"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="crumbs">
+    <a href="index.html">Início</a>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg>
+    <span>Portfólio</span>
+  </div>
+  <div class="script">trabalhos selecionados,</div>
+  <h1>Portfólio</h1>
+  <p>Uma seleção de eventos, marcas e bastidores que tive o privilégio de fotografar e contar.</p>
+</section>
+
+<section class="portfolio">
+  <div class="portfolio__container">
+    <div class="portfolio__filters">
+      <button class="active" data-filter="all">Todos</button>
+      <button data-filter="evento">Eventos</button>
+      <button data-filter="marca">Marcas</button>
+      <button data-filter="reels">Reels</button>
+    </div>
+    <div class="portfolio__grid">
+      <div class="portfolio__item tall" data-cat="evento">
+        <image-slot id="p01" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Casamento</span><strong>Letícia & Pedro</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item" data-cat="marca">
+        <image-slot id="p02" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Lançamento</span><strong>Atelier Côco</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item" data-cat="reels">
+        <image-slot id="p03" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Reel</span><strong>Doce Mente</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item wide" data-cat="evento">
+        <image-slot id="p04" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Formatura</span><strong>Turma Engenharia</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item" data-cat="marca">
+        <image-slot id="p05" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Campanha</span><strong>Vinhos Marsala</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item" data-cat="reels">
+        <image-slot id="p06" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Reel</span><strong>Studio Ametista</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item tall" data-cat="evento">
+        <image-slot id="p07" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Aniversário</span><strong>15 anos Helena</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item wide" data-cat="marca">
+        <image-slot id="p08" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Bastidor</span><strong>Editorial Bordô</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item" data-cat="reels">
+        <image-slot id="p09" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Reel</span><strong>Casa Bordô</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item" data-cat="evento">
+        <image-slot id="p10" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Confraternização</span><strong>Costa & Co</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item" data-cat="marca">
+        <image-slot id="p11" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Editorial</span><strong>Florais Luz</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+      <div class="portfolio__item" data-cat="reels">
+        <image-slot id="p12" placeholder="Foto" shape="rect"></image-slot>
+        <div class="portfolio__item__caption">
+          <div><span>Reel</span><strong>Pluma Buffet</strong></div>
+          <em>2024</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brands">
+  <div class="brands__container">
+    <div class="brands__head">
+      <div class="eyebrow center">Marcas & eventos atendidos</div>
+      <h3>Confiada por marcas autorais, casamentos memoráveis e empresas que tratam o conteúdo como assinatura.</h3>
+    </div>
+    <div class="brands__grid">
+      <div class="brand">Atelier Côco</div>
+      <div class="brand">Doce Mente</div>
+      <div class="brand">Marsala<small>vinhos</small></div>
+      <div class="brand">Studio Ametista</div>
+      <div class="brand">Casa Bordô</div>
+      <div class="brand">Florais Luz</div>
+      <div class="brand">Espaço Lumière</div>
+      <div class="brand">Pluma<small>buffet</small></div>
+      <div class="brand">Maison RT</div>
+      <div class="brand">Costa & Co</div>
+      <div class="brand">Ouro Velho</div>
+      <div class="brand">Camélia<small>floricultura</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="script">é seu evento ou marca,</div>
+  <h2>o próximo <span class="italic">capítulo</span>?</h2>
+  <a href="contato.html" class="btn btn-gold">
+    Solicitar orçamento
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <div class="footer__brand">Sarah</div>
+      <div class="footer__tagline">by mídia</div>
+      <p class="footer__about">Storymaker e Social Media. Stories autorais para marcas, eventos e momentos que merecem ser lembrados.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="sobre.html">Sobre mim</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li><a href="depoimentos.html">Depoimentos</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="servicos.html">Storymaker</a></li>
+        <li><a href="servicos.html">Cobertura de evento</a></li>
+        <li><a href="servicos.html">Gestão de Instagram</a></li>
+        <li><a href="servicos.html">Reels & vídeos curtos</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5511977239672">(11) 97723-9672</a></li>
+        <li><a href="mailto:sarahtp.socialmedia@gmail.com">sarahtp.socialmedia<br>@gmail.com</a></li>
+        <li><a href="#">@sarahbymidia</a></li>
+        <li>São Paulo · SP</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Sarah by Mídia · Todos os direitos reservados</span>
+    <small>onde criatividade encontra propósito</small>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511977239672?text=Ol%C3%A1%20Sarah%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="wa-float" target="_blank" rel="noopener">
+  <span class="pulse"></span>
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.31c-.31-.16-1.84-.91-2.13-1.01-.29-.11-.49-.16-.7.16-.21.31-.8 1.01-.98 1.22-.18.21-.36.23-.67.08-.31-.16-1.31-.48-2.5-1.54-.92-.82-1.55-1.84-1.73-2.15-.18-.31-.02-.48.14-.63.14-.14.31-.36.47-.54.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.54-.08-.16-.7-1.69-.96-2.31-.25-.61-.51-.53-.7-.54-.18-.01-.39-.01-.6-.01-.21 0-.54.08-.83.39-.29.31-1.09 1.07-1.09 2.6 0 1.53 1.12 3.01 1.27 3.22.16.21 2.2 3.36 5.34 4.71.74.32 1.33.51 1.78.66.75.24 1.43.21 1.97.13.6-.09 1.84-.75 2.1-1.48.26-.73.26-1.35.18-1.48-.08-.13-.28-.21-.59-.36zM16.04 4.5C9.69 4.5 4.5 9.69 4.5 16.04c0 2.04.53 4.03 1.54 5.79L4.5 27.5l5.86-1.53c1.7.93 3.61 1.42 5.68 1.42 6.35 0 11.54-5.19 11.54-11.54S22.39 4.5 16.04 4.5z"/></svg>
+  <span>Falar no WhatsApp</span>
+</a>
+
+<script src="image-slot.js"></script>
+<script>
+document.querySelectorAll('.portfolio__filters button').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.portfolio__filters button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.getAttribute('data-filter');
+    document.querySelectorAll('.portfolio__item').forEach(it => {
+      const cat = it.getAttribute('data-cat');
+      it.style.display = (f === 'all' || cat === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+
+</body>
+</html>
