@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Allura&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2">
 
 <style>
 /* ============= HERO ============= */
@@ -18,18 +18,18 @@
   background:
     radial-gradient(ellipse 60% 80% at 100% 50%, rgba(94,19,19,0.5) 0%, transparent 60%),
     var(--wine);
-  padding: 160px 48px 80px;
+  padding: 100px 48px 80px;
 }
 .hero-1__grid {
-  max-width: 1280px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 80px; align-items: center;
+  max-width: 1440px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
   min-height: calc(100vh - 240px);
 }
 .hero-1__eyebrow { margin-bottom: 36px; }
 .hero-1__h1 {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(56px, 8vw, 116px);
+  font-size: clamp(52px, 7vw, 104px);
   line-height: 0.95;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -171,6 +171,24 @@
     <div class="hero-1__photo reveal">
       <image-slot id="hero-portrait" src="assets/sarah-cinema.png" placeholder="Foto principal da Sarah" shape="rect" position="50% 35%"></image-slot>
       <div class="hero-1__floating-tag">By Sarah Teixeira</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE — ASSINATURA ============ -->
+<section class="feature feature--light reveal">
+  <div class="feature__inner">
+    <div class="feature__photo">
+      <img src="uploads/storymaker.jpg" alt="Caderno e credenciais com a identidade Storymaker da Sarah by Mídia" loading="lazy" />
+    </div>
+    <div class="feature__body">
+      <div class="eyebrow feature__eyebrow">Identidade em cada detalhe</div>
+      <div class="feature__script">assinatura,</div>
+      <h2 class="feature__title">Conteúdo com <span class="italic">cara de marca</span></h2>
+      <p class="feature__text">Cada detalhe nasce com a mesma assinatura: do caderno de ideias às credenciais da equipe, tudo carrega a identidade visual que levo pro seu conteúdo — paleta, tipografia e propósito, pra que o seu perfil tenha cara de capa de revista.</p>
+      <a href="servicos.html" class="btn btn-wine">Conhecer os serviços
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>
